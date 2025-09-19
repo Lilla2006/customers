@@ -52,9 +52,6 @@ app.put('/customers/:id', (req, res) => {
 
 app.delete('/customers/:id', (req, res) => {
     const id = +req.params.id;
-    if (!customers[id - 1]) {
-        return res.status(500).json({message: 'User not found'})
-    }
     customers = customers.filter((customer) => customer.id !== id);
     res.status(200).json({message: 'Delete successfully'})
 
